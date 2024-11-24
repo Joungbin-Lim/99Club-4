@@ -11,16 +11,15 @@ int main() {
     cin >> n;
 
     vector<int> num(n + 1);
-    vector<int> d(n + 1, 0);
+    vector<int> d(n + 1, 1);
     for (i = 1; i <= n; ++i) {
         cin >> num[i];
-        d[i] = num[i];
     }
 
     for (i = 2; i <= n; ++i) {
         for (j = 1; j < i; ++j) {
-            if (num[i] > num[j] and d[i] < d[j] + num[i]) {
-                d[i] = d[j] + num[i];
+            if (num[i] < num[j] and d[i] < d[j] + 1) {
+                d[i] = d[j] + 1;
             }
         }
     }
